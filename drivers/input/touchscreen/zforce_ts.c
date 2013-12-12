@@ -1323,9 +1323,9 @@ static int zforce_read_data(void)
 #ifdef PRINT_POINT_INFO
 	event->x1 = (s16)(buf[3] & 0x0F)<<8 | (s16)buf[4];
 	event->y1 = (s16)(buf[5] & 0x0F)<<8 | (s16)buf[6];
-	printk("touch point = %d\n",event->touch_point);
-	printk("gest_id = %d\n",event->gest_id);
-	printk("event->x1 = %d, event->y1 = %d. \n", event->x1, event->y1);
+//	printk("touch point = %d\n",event->touch_point);
+//	printk("gest_id = %d\n",event->gest_id);
+//	printk("event->x1 = %d, event->y1 = %d. \n", event->x1, event->y1);
 #endif
 
 	if ((event->touch_point == 0) && (event->gest_id == 0)) {
@@ -1503,7 +1503,7 @@ static void zforce_report_touchkey(void)
 	if(event->gest_id != 0) //report key
 	{
 #ifdef PRINT_POINT_INFO
-		printk("gest_id key_value %d\n", key_value);
+		//printk("gest_id key_value %d\n", key_value);
 #endif
 		input_report_key(data->input_dev, key_value, 1);
 		input_sync(data->input_dev);  
@@ -1793,12 +1793,12 @@ static void zforce_ts_handle_data(struct work_struct *work) {
 	zforce_command = tmp_buf[0];
 	/***************/
 	//printk("Data from ZForce, command=%d, length=%d\n", zforce_command, payload_length);
-	printk("recieved:  0x%x ,  0x%x",tmp_start[0], tmp_start[1]);
+	//printk("recieved:  0x%x ,  0x%x",tmp_start[0], tmp_start[1]);
 	for(j = 0; j < payload_length; j++){
 
-	printk("  0x%x, \t",tmp_buf[j]);
+	//printk("  0x%x, \t",tmp_buf[j]);
 	}
-	printk("\n");
+	//printk("\n");
 	/***************************/
 	switch (zforce_command) { // Attend to the command
 
@@ -1957,7 +1957,7 @@ static void zforce_ts_handle_touchdata(struct zforce_ts_priv *priv, u_int8_t *pa
 		// Newer ZForce with 7 bytes per coordinate
 		protocol_variant = 9;
 	}
-	printk("\n+++++++++++++++++++++++++++++++++++++++Touch_X_Y_TS+++++++++++++++++++++++++++\n");
+	//printk("\n+++++++++++++++++++++++++++++++++++++++Touch_X_Y_TS+++++++++++++++++++++++++++\n");
 	// Did we figure out the protocol ?
 	if (!protocol_variant) {
 		// Not the expected packet length
@@ -2274,7 +2274,7 @@ static irqreturn_t zforce_ts_isr(int irq, void *dev_id) {
 
 	int reg_val, tmp;
 	disable_irq_nosync(SW_INT_IRQNO_PIO);
-	printk("==interrupt generate==\n");
+	//printk("==interrupt generate==\n");
 	//	clear the IRQ_EINT21 interrupt pending
 	reg_val = readl(gpio_addr + PIO_INT_STAT_OFFSET);
 	if(reg_val&(1<<(IRQ_EINT21)))
@@ -2324,7 +2324,7 @@ static void zforce_ts_close(struct input_dev *dev) {
 	struct zforce_ts_priv *priv = input_get_drvdata(dev);
 	
 	disable_irq(priv->irq);
-	printk("=======================================zforce_deactivate_TSS========================================");
+	//printk("=======================================zforce_deactivate_TSS========================================");
 	// Cancel any pending bottom half work (wait for it to finish)
 /*
 	if (cancel_delayed_work_sync(&priv->work)) {
