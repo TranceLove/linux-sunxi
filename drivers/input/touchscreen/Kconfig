@@ -879,10 +879,10 @@ config TOUCHSCREEN_FT5X_TS
        help
          byd0x7ets touchscreen driver
 
-config TOUCHSCREEN_ZTOUCH_TS
-       tristate  "ztouch touchscreen driver"
+config TOUCHSCREEN_ZTOUCH_MEEP1_TS
+       tristate  "ztouch touchscreen driver for Oregon Scientific Meeppad 1"
        help
-         ztouch_ts touchscreen driver
+         ztouch_ts touchscreen driver for Oregon Scientific Meeppad 1
 
 config  TOUCHSCREEN_ZT8031
        tristate  "ZT8031 touchscreen driver"
