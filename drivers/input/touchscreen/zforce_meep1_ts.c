@@ -21,7 +21,7 @@
 
 #include <linux/i2c.h>
 #include <linux/input.h>
-#include "zforce_ts.h"
+#include "zforce_meep1_ts.h"
 #ifdef CONFIG_HAS_EARLYSUSPEND
     #include <linux/pm.h>
     #include <linux/earlysuspend.h>
