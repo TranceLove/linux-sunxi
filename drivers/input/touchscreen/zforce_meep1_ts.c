@@ -116,7 +116,7 @@ static int key_val = 0;
 #define CTP_IRQ_NO			(gpio_int_info[0].port_num)
 
 #define CTP_IRQ_MODE			(LOW_LEVEL)
-#define CTP_NAME		"zforce"	
+#define CTP_NAME		"zforce_meep1"	
 #define TS_RESET_LOW_PERIOD		(1)
 #define TS_INITIAL_HIGH_PERIOD		(30)
 #define TS_WAKEUP_LOW_PERIOD	(20)
